@@ -7,6 +7,7 @@
 //klasy
 #include "Player_car.h"
 #include "Bad_car.h"
+#include "Background.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -16,7 +17,8 @@ int main() {
     int window_width, window_height;
     window_width = 800;
     window_height = 600;
-a:
+
+menu:
     //menu window:
     sf::RenderWindow Game_window(sf::VideoMode(window_width, window_height), "ECTS RIDE");
     Game_window.setFramerateLimit(60);
@@ -26,6 +28,7 @@ a:
     if (!menu_texture.loadFromFile("textures/menu/menu.png")) {
         std::cout << "menu texture not found!" << std::endl;
     }
+
     sf::Sprite menu_sprite;
     menu_sprite.setTexture(menu_texture);
 
@@ -49,38 +52,12 @@ a:
                         if (mouse_pos.x > 250 && mouse_pos.x < 550 && mouse_pos.y > 190 && mouse_pos.y < 270) {
 
                             sf::Clock Game_clock;
-
-                            //road sprite:
-                            sf::Texture road_texture;
-                            road_texture.loadFromFile("textures/roads/road1.png");
-                            sf::Sprite road_sprite;
-                            road_sprite.setTexture(road_texture);
+                            //background:
+                            Background background(Game_window, player_car._points);
 
                             //win and game over information:
                             sf::Font font;
                             font.loadFromFile("Bebas-Regular.ttf");
-
-                            sf::Text Game_Over_Text;
-                            Game_Over_Text.setFont(font);
-                            Game_Over_Text.setFillColor(sf::Color::Red);
-                            Game_Over_Text.setCharacterSize(100);
-                            Game_Over_Text.setString("Game over");
-                            Game_Over_Text.setPosition(200.0, 200.0);
-
-                            sf::Text Win_Text;
-                            Win_Text.setFont(font);
-                            Win_Text.setFillColor(sf::Color::Green);
-                            Win_Text.setCharacterSize(100);
-                            Win_Text.setString("you win!!!");
-                            Win_Text.setPosition(200.0, 200.0);
-
-                            //actual points info in game:
-                            sf::Text Points_text;
-                            Points_text.setFont(font);
-                            Points_text.setFillColor(sf::Color::Black);
-                            Points_text.setCharacterSize(25);
-                            Points_text.setString("points: "+ std::to_string(player_car._points));
-                            Points_text.setPosition(720.0, 20.0);
 
                             //cars:
                             std::vector <std::unique_ptr <bad_car>> cars_vactor;
@@ -122,21 +99,18 @@ a:
                                             player_car.Points_counting();
                                         }
                                     }
-
-                                    Points_text.setString("points: \n"+ std::to_string(player_car._points));
                                 }
+                                int points = player_car._points;
 
                                 //end_game info:
                                 if ((end_game) && (!win)) {
-                                    Game_window.clear(sf::Color::Black);
-                                    Game_window.draw(Game_Over_Text);
-//                                    music.stop();
+                                    background.Game_over(Game_window, points);
+                                    //Game_window.draw(Points_text);
                                 }
 
                                 if ((win) && (end_game)) {
-                                    Game_window.clear(sf::Color::Black);
-                                    Game_window.draw(Win_Text);
-//                                    music.stop();
+                                   background.You_win(Game_window, points);
+                                    //Game_window.draw(Points_text);
                                 }
 
                                 //game animation:
@@ -189,10 +163,10 @@ a:
                                     }
 
                                     //draw everything here:
-                                    Game_window.draw(road_sprite);
-                                    Game_window.draw(Points_text);
-
+                                    Game_window.draw(background);
                                     Game_window.draw(player_car);
+                                    background.Points_display(Game_window, points);
+
                                     for (auto &car : cars_vactor) {
                                         Game_window.draw(*car);
                                     }
@@ -240,7 +214,7 @@ a:
                                             //back to menu button:
                                             if (mouse_pos.x > 550.0 && mouse_pos.x < window_width &&
                                                 mouse_pos.y > 50.0 && mouse_pos.y < 125.0) {
-                                                goto a;
+                                                goto menu;
                                             }
 
                                             player_car.Skin_select(mouse_pos);
@@ -251,9 +225,11 @@ a:
                                 Game_window.clear(sf::Color::Black);
 
                                 Game_window.draw(shop_sprite);
+
                                 for (auto _car : cars_in_shop) {
                                     Game_window.draw(_car);
                                 }
+
                                 Game_window.display();
                             }
 

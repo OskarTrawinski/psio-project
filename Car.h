@@ -12,7 +12,9 @@
 
 class Car : public sf::Sprite {
 public:
-    Car():sf::Sprite(){};
+    Car() : sf::Sprite() {
+        //default
+    };
     float _speed;
     float _horizontal_position;
     float _vertical_position;

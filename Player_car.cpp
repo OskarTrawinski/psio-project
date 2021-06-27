@@ -48,7 +48,7 @@ void Player_car::setSkin(float  x, float y) {
 }
 
 void Player_car::Points_counting() {
-    _points += 1.0;
+    _points += 1;
 }
 
 void Player_car::Skin_select(sf::Vector2i &mouse_pos) {

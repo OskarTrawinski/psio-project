@@ -3,7 +3,7 @@ project(Project_PSiO)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Project_PSiO main.cpp Player_car.cpp Player_car.h bad_car.cpp bad_car.h Car.cpp Car.h)
+add_executable(Project_PSiO main.cpp Player_car.cpp Player_car.h bad_car.cpp bad_car.h Car.cpp Car.h Background.cpp Background.h)
 include_directories(/usr/local/include)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
