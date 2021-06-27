@@ -29,7 +29,6 @@ protected:
         states.texture = &_texture;
         target.draw(_vertex, states);
     }
-
 };
 
 

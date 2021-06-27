@@ -51,3 +51,49 @@ void Player_car::Points_counting() {
     _points += 1.0;
 }
 
+void Player_car::Skin_select(sf::Vector2i &mouse_pos) {
+    //first row in the shop:
+    //set playre_car texture as car1 texture:
+    if (mouse_pos.x > 50.0 && mouse_pos.x < 150.0 && mouse_pos.y > 150.0 && mouse_pos.y < 350.0) {
+        setSkin(0.0, 0.0);
+    }
+    //set playre_car texture as car2 texture:
+    if (mouse_pos.x > 200.0 && mouse_pos.x < 300.0 && mouse_pos.y > 150.0 && mouse_pos.y < 350.0) {
+        setSkin(50.0, 0.0);
+    }
+    //set playre_car texture as car3 texture:
+    if (mouse_pos.x > 350.0 && mouse_pos.x < 450.0 && mouse_pos.y > 150.0 &&
+        mouse_pos.y < 350.0) {
+        setSkin(100.0, 0.0);
+    }
+    //set playre_car texture as car4 texture:
+    if (mouse_pos.x > 500.0 && mouse_pos.x < 600.0 && mouse_pos.y > 150.0 && mouse_pos.y < 350.0) {
+        setSkin(150.0, 0.0);
+    }
+    //set playre_car texture as car5 texture:
+    if (mouse_pos.x > 650.0 && mouse_pos.x < 750.0 && mouse_pos.y > 150.0 && mouse_pos.y < 350.0) {
+        setSkin(200.0, 0.0);
+    }
+
+    //second row in the shop:
+    //set playre_car texture as car6 texture:
+    if (mouse_pos.x > 50.0 && mouse_pos.x < 150.0 && mouse_pos.y > 375.0 && mouse_pos.y < 575.0) {
+        setSkin(0.0, 90.0);
+    }
+    //set playre_car texture as car7 texture:
+    if (mouse_pos.x > 200.0 && mouse_pos.x < 300.0 && mouse_pos.y > 375.0 && mouse_pos.y < 575.0) {
+        setSkin(50.0, 90.0);
+    }
+    //set playre_car texture as car8 texture:
+    if (mouse_pos.x > 350.0 && mouse_pos.x < 450.0 && mouse_pos.y > 375.0 && mouse_pos.y < 575.0) {
+        setSkin(100.0, 90.0);
+    }
+    //set playre_car texture as car9 texture:
+    if (mouse_pos.x > 500.0 && mouse_pos.x < 600.0 && mouse_pos.y > 375.0 && mouse_pos.y < 575.0) {
+        setSkin(150.0, 90.0);
+    }
+    //set playre_car texture as car10 texture:
+    if (mouse_pos.x > 650.0 && mouse_pos.x < 750.0 && mouse_pos.y > 375.0 && mouse_pos.y < 575.0) {
+        setSkin(200.0, 90.0);
+    }
+}

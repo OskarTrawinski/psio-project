@@ -22,3 +22,4 @@ void Car::Show_cars(std::vector<sf::Sprite> &vector) {
         }
     }
 }
+

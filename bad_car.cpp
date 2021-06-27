@@ -5,14 +5,14 @@
 #include "bad_car.h"
 
 bad_car::bad_car() {
-    if (!_texture.loadFromFile("textures/cars/car5.png"))
+    if (!_texture.loadFromFile("textures/cars/truck.png"))
     {
         std::cout << "Opponent car texture loading error!" << std::endl;
     }
 
     _sprite.setTexture(_texture);
     _sprite.setPosition(20.0, 20.0);
-    _sprite.setScale(1.2, 1.2);
+    _sprite.setScale(1.3, 1.3);
     _sprite.setRotation(180.0);
     _sprite.setOrigin(100.0, 100.0);
 
@@ -28,10 +28,10 @@ void bad_car::Spawn_opponent() {
     _random = std::rand() % 5 + 1;
 
     if (_random == 1) {
-        _horizontal_position = 100.0;
+        _horizontal_position = 90.0;
     }
     if (_random == 2){
-        _horizontal_position = 210.0;
+        _horizontal_position = 200.0;
     }
     if (_random == 3){
         _horizontal_position = 320.0;

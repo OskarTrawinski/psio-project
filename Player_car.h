@@ -18,6 +18,7 @@ public:
     void setSkin(float  x, float y);
     void Move_player(sf::Time &elapsed);
     void Points_counting();
+    void Skin_select(sf::Vector2i &mouse_pos);
 
 private:
     float _skin_x;
