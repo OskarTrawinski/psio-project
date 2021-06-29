@@ -19,9 +19,13 @@ public:
     float _horizontal_position;
     float _vertical_position;
 
+    void Spawn_opponent();
+    void Animation_down(sf::Time &elapsed);
     void Show_cars(std::vector <sf::Sprite> &vector);
 
 protected:
+    float _random;
+    bool _tmp = 0;
     sf::Sprite _sprite;
     sf::Texture _texture;
     sf::VertexArray _vertex;

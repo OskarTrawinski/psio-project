@@ -96,4 +96,6 @@ void Player_car::Skin_select(sf::Vector2i &mouse_pos) {
     if (mouse_pos.x > 650.0 && mouse_pos.x < 750.0 && mouse_pos.y > 375.0 && mouse_pos.y < 575.0) {
         setSkin(200.0, 90.0);
     }
+
+
 }

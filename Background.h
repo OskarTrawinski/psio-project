@@ -12,12 +12,14 @@
 
 class Background : public sf::Drawable {
 public:
-    Background(sf::RenderWindow &window, int &points);
+    Background();
+    void Count_down(sf::RenderWindow &window, sf::Time &elapsed, sf::Clock &clock);
     void Points_display(sf::RenderWindow &window, int &points);
     void Game_over(sf::RenderWindow &window, int &points);
     void You_win(sf::RenderWindow &window, int &points);
 
 protected:
+    float _line_x, _line_y;
     int _number;
     sf::Sprite _sprite;
     sf::Texture _texture;

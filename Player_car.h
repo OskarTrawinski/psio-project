@@ -10,7 +10,7 @@
 #include <SFML/Graphics.hpp>
 #include "Car.h"
 
-class Player_car : public Car{
+class Player_car : public Car {
 public:
     int _points;
 
